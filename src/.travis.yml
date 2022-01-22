@@ -32,4 +32,4 @@ script: "./gradlew clean build"
 notifications:
   email:
     recipients:
-      - vkdtjsdo@gmail.com
+      - vkdtjsdo@naver.com
