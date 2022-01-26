@@ -14,6 +14,24 @@ cache:
 
 script: "./gradlew clean build"
 
+before_deploy:
+  - zip -r Architect-Archives-Web *
+  - mkdir -p deploy
+  - mv Architect-Archives-Web.zip deploy/Architect-Archives-Web.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+    bucket: springboot-webservices-deploy # 생성한 S3 버킷
+    region: ap-northeast-3
+    skip_cleanup: true
+    acl: public_read
+    wait-until-deployed: true
+    on:
+      repo: seon-ae/Architect-Archives-Web #Github 주소
+      branch: master
+
 # CI 실행 완료시 메일로 알람
 notifications:
   email:
