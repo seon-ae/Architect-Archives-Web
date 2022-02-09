@@ -1,0 +1,9 @@
+datasource:
+  url : jdbc:mariadb://seonae-dev-db.cgig5rskgy5f.ap-northeast-3.rds.amazonaws.com:3306/seonae-dev-db
+  username : seonae
+  password : Asasdouble12!
+  driver-class-name: org.mariadb.jdbc.Driver
+
+jpa:
+  hibernate:
+    ddl-auto: create
